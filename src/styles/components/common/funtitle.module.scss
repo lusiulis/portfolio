@@ -1,0 +1,32 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  .funTitle {
+    color: $green;
+    display: block;
+    font-size: 3rem;
+
+    .args {
+      color: white;
+    }
+  }
+  .subtitle {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  .description {
+    color: $gray_text;
+  }
+}
+
+.init {
+  .funTitle {
+    transform: rotateX(90deg);
+  }
+
+  .subtitle,
+  .description {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}

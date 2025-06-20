@@ -1,0 +1,11 @@
+.overall {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1250px) {
+    padding: 0 20px;
+  }
+}

@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  ReactNode,
-  RefObject,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-} from 'react';
+import { ReactNode, useRef } from 'react';
 import styles from '@/styles/components/common/funtitle.module.scss';
 import { useGsapAnimation } from '@/lib/hooks/useGsapAnimation';
 import { defaultFunTitle } from '@/lib/gsapAnimations';
@@ -25,7 +19,6 @@ type IFunTitleProps = {
     descriptionRef: HTMLElement | null;
     triggerRef?: HTMLElement | null;
   }) => void;
-  trigger?: RefObject<HTMLElement | null>;
 };
 
 const FunTitle = ({
@@ -37,7 +30,6 @@ const FunTitle = ({
   children,
   animation = defaultFunTitle,
   initTitle = false,
-  trigger = useRef(null),
 }: IFunTitleProps) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subTitleRef = useRef<HTMLParagraphElement>(null);

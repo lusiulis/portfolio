@@ -55,7 +55,7 @@ const ScrambleTitle = ({
     const animId = requestAnimationFrame(update);
 
     return () => cancelAnimationFrame(animId);
-  }, [finalText, iterations, delay]);
+  }, [finalText, iterations, delay, text]);
 
   return (
     <h1 className={style}>

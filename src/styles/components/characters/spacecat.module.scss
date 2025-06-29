@@ -1,0 +1,32 @@
+.container {
+  overflow-x: hidden;
+  .cat {
+    width: 10vh;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .black {
+    top: 10vh;
+    transform: translateX(40vw);
+    right: 0;
+  }
+
+  .white {
+    top: 80vh;
+    transform: translateX(20vw);
+    right: 0;
+  }
+
+  .gray {
+    top: 10vh;
+    transform: translateX(-40vw);
+    left: 0;
+  }
+
+  .orange {
+    top: 80vh;
+    transform: translateX(-20vw);
+    left: 0;
+  }
+}

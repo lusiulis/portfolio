@@ -7,6 +7,16 @@
   width: 100%;
   z-index: 555;
 
+  .bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 2px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
   .bg {
     position: absolute;
     top: 0;
@@ -18,13 +28,19 @@
   }
 
   .container {
+    max-width: 1200px;
+    margin: auto;
     width: 100%;
     display: flex;
     background-color: $base_color;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 20px;
+    padding: 5px 0;
     box-sizing: border-box;
+    
+    @media (max-width: 1250px) {
+      padding: 0 20px;
+    }
 
     .logoImg {
       height: 70px;

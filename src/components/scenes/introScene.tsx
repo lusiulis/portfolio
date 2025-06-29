@@ -5,6 +5,7 @@ import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { initialFunTitle } from '@/lib/gsapAnimations';
 import styles from '@/styles/components/scenes/introscene.module.scss';
+import SpaceCats from '../characters/spaceCats';
 
 const IntroScene = () => {
   const loadedRef = useRef<HTMLDivElement>(null);
@@ -38,6 +39,7 @@ const IntroScene = () => {
           ref={loadedRef}
         />
       </FunTitle>
+      
     </div>
   );
 };

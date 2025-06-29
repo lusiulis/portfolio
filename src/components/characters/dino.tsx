@@ -1,7 +1,8 @@
 'use client';
 
-import { useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 import styles from '@/styles/components/characters/dino.module.scss';
+import gsap from 'gsap';
 
 const Dino = () => {
   const leftLeg = useRef(null);
@@ -10,6 +11,25 @@ const Dino = () => {
   const rightArm = useRef(null);
   const tail = useRef(null);
   const body = useRef(null);
+
+  useLayoutEffect(() => {
+    if (
+      !leftLeg.current ||
+      !leftArm.current ||
+      !rightArm.current ||
+      !rightLeg.current ||
+      !tail.current ||
+      !body.current
+    )
+      return;
+
+    gsap.to(body.current, {
+      transformOrigin: '85% 100%',
+      rotationZ: 20,
+      yoyo: true,
+      repeat: -1
+    });
+  }, []);
 
   return (
     <svg

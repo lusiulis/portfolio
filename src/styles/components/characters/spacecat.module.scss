@@ -1,32 +1,33 @@
 .container {
-  overflow-x: hidden;
   .cat {
     width: 10vh;
+    height: 10vh;
     position: absolute;
     z-index: -1;
-  }
-
-  .black {
-    top: 10vh;
-    transform: translateX(40vw);
-    right: 0;
+    will-change: transform;
   }
 
   .white {
-    top: 80vh;
-    transform: translateX(20vw);
-    right: 0;
+    top: 10vh;
+    right: 20vw;
+    transform: rotate(40deg);
+  }
+
+  .black {
+    top: 60vh;
+    left: 20vw;
+    transform: rotate(-40deg);
   }
 
   .gray {
     top: 10vh;
-    transform: translateX(-40vw);
-    left: 0;
+    left: -40vw;
+    transform: rotate(40deg);
   }
 
   .orange {
     top: 80vh;
-    transform: translateX(-20vw);
-    left: 0;
+    left: -20vw;
+    transform: rotate(-40deg);
   }
 }

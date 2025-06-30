@@ -5,12 +5,13 @@ import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { initialFunTitle } from '@/lib/gsapAnimations';
 import styles from '@/styles/components/scenes/introscene.module.scss';
+import { useGSAP } from '@gsap/react';
 import SpaceCats from '../characters/spaceCats';
 
 const IntroScene = () => {
   const loadedRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     if (!loadedRef.current) return;
 
     gsap.to(loadedRef.current, {
@@ -21,7 +22,7 @@ const IntroScene = () => {
         document.body.style.overflowY = 'scroll';
       },
     });
-  }, []);
+  });
 
   return (
     <div className={styles.container}>
@@ -39,7 +40,7 @@ const IntroScene = () => {
           ref={loadedRef}
         />
       </FunTitle>
-      
+      <SpaceCats />
     </div>
   );
 };

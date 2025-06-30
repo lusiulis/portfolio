@@ -5,9 +5,10 @@ import OrangeCat from './orangeCat';
 import BlackCat from './blackCat';
 import GrayCat from './grayCat';
 import styles from '@/styles/components/characters/spacecat.module.scss';
-import { useLayoutEffect, useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 const SpaceCats = () => {
   const whiteRef = useRef<SVGSVGElement>(null);
@@ -16,8 +17,89 @@ const SpaceCats = () => {
   const orangeRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
-    console.log('Layout start', whiteRef.current?.getBoundingClientRect());
+  const vw = useCallback((v: number) => (window.innerWidth * v) / 100, []);
+  const vh = useCallback((v: number) => (window.innerHeight * v) / 100, []);
+
+  useGSAP(
+    () => {
+      if (
+        !whiteRef.current ||
+        !grayRef.current ||
+        !blackRef.current ||
+        !orangeRef.current ||
+        !containerRef.current
+      )
+        return;
+
+     
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top 40%',
+          end: 'bottom -50%',
+          scrub: 2,
+          markers: true,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      tl.addLabel('start')
+        .to(
+          orangeRef.current,
+          {
+            x: vw(40),
+            y: vh(40),
+          },
+          'start'
+        )
+        .to(
+          [whiteRef.current, blackRef.current],
+          {
+            y: vh(40),
+            x: vw(100),
+          },
+          'start'
+        )
+        .to(
+          grayRef.current,
+          {
+            y: vh(80),
+            x: vw(80),
+          },
+          'start'
+        );
+
+      tl.addLabel('second')
+        .to(
+          orangeRef.current,
+          {
+            x: 0,
+            y: 0,
+          },
+          'second'
+        )
+        .to(
+          grayRef.current,
+          {
+            x: '+=60vw',
+            y: '70vh',
+          },
+          'second'
+        )
+        .to(
+          blackRef.current,
+          {
+            x: '-=200vw',
+            y: '-=40vh',
+          },
+          'second'
+        );
+    },
+    { scope: containerRef }
+  );
+
+  /* useGSAP(() => {
     if (
       !whiteRef.current ||
       !grayRef.current ||
@@ -146,29 +228,8 @@ const SpaceCats = () => {
           },
           'final'
         );
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
-      });
-    }, containerRef);
-
-    const handleRefresh = () => {
-      console.log('AFTER FULL LOAD', whiteRef.current?.getBoundingClientRect());
-      requestAnimationFrame(() => {
-        ScrollTrigger.refresh();
-      });
-    };
-
-    if (document.readyState === 'complete') {
-      handleRefresh();
-    } else {
-      window.addEventListener('load', handleRefresh);
-    }
-
-    return () => {
-      ctx.revert();
-      window.removeEventListener('load', handleRefresh);
-    };
-  }, []);
+    });
+  }, []); */
   return (
     <div
       className={styles.container}

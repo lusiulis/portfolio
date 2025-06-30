@@ -1,7 +1,7 @@
 // hooks/useMultiGsapAnimation.ts
 'use client';
 
-import { useLayoutEffect } from 'react';
+import { useGSAP } from '@gsap/react';
 
 type RefsMap<T extends Record<string, React.RefObject<HTMLElement | null>>> = T;
 
@@ -11,13 +11,16 @@ export function useGsapAnimation<
   refs: RefsMap<T>,
   animateFn?: (elements: { [K in keyof T]: HTMLElement | null }) => void
 ) {
-  useLayoutEffect(() => {
-    const elements = Object.fromEntries(
-      Object.entries(refs).map(([key, ref]) => [key, ref.current])
-    ) as { [K in keyof T]: HTMLElement | null };
+  useGSAP(
+    () => {
+      const elements = Object.fromEntries(
+        Object.entries(refs).map(([key, ref]) => [key, ref.current])
+      ) as { [K in keyof T]: HTMLElement | null };
 
-    if (animateFn) {
-      animateFn(elements);
-    }
-  }, [refs, animateFn]);
+      if (animateFn) {
+        animateFn(elements);
+      }
+    },
+    { dependencies: [refs, animateFn] }
+  );
 }

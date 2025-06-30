@@ -30,8 +30,37 @@ const SpaceCats = () => {
         !containerRef.current
       )
         return;
+      gsap.to([blackRef.current, grayRef.current], {
+        scale: 1.5,
+        duration: 1.5,
+        yoyo: true,
+        repeat: -1,
+        ease: 'sine.inOut',
+      });
 
-     
+      gsap.to([orangeRef.current, whiteRef.current], {
+        scale: 0.5,
+        duration: 1.5,
+        yoyo: true,
+        repeat: -1,
+        ease: 'sine.inOut',
+      });
+
+      gsap.to([orangeRef.current, blackRef.current], {
+        rotate: 40,
+        yoyo: true,
+        repeat: -1,
+        duration: 1.5,
+        ease: 'sine.inOut',
+      });
+
+      gsap.to([whiteRef.current, grayRef.current], {
+        rotate: -40,
+        yoyo: true,
+        repeat: -1,
+        duration: 1.5,
+        ease: 'sine.inOut',
+      });
 
       const tl = gsap.timeline({
         scrollTrigger: {

@@ -1,7 +1,7 @@
 'use client';
 
 import FunTitle from '../common/funTitle';
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { initialFunTitle } from '@/lib/gsapAnimations';
 import styles from '@/styles/components/scenes/introscene.module.scss';

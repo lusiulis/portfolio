@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Navbar from '@/components/navbar';
 import ScrollSmootherWrapper from '@/components/scrollSmootherWrapper';
-
 import styles from '@/styles/layout.module.scss';
 import '@/styles/base.scss';
 
@@ -20,7 +19,9 @@ export default function RootLayout({
       <body>
         <Navbar />
         <ScrollSmootherWrapper>
-          <main className={styles.overall}>{children}</main>
+          <main className={styles.overall}>
+            <div className={styles.mainContainer}>{children}</div>
+          </main>
         </ScrollSmootherWrapper>
       </body>
     </html>

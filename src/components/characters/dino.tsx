@@ -1,8 +1,10 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import styles from '@/styles/components/characters/dino.module.scss';
 import gsap from 'gsap';
+import { LOOP } from '@/lib/constants';
+import { useGSAP } from '@gsap/react';
 
 const Dino = () => {
   const leftLeg = useRef(null);
@@ -11,25 +13,70 @@ const Dino = () => {
   const rightArm = useRef(null);
   const tail = useRef(null);
   const body = useRef(null);
+  const container = useRef(null);
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     if (
       !leftLeg.current ||
       !leftArm.current ||
       !rightArm.current ||
       !rightLeg.current ||
       !tail.current ||
-      !body.current
+      !body.current ||
+      !container.current
     )
       return;
 
+    gsap.to([leftLeg.current, rightLeg.current], {
+      rotateZ: 5,
+      transformOrigin: "25% 50%",
+      ...LOOP
+    })
+
+    gsap.to([leftArm.current, rightArm.current], {
+      yPercent: 20,
+      xPercent: 20,
+      ...LOOP
+    })
+
+    gsap.to(tail.current, {
+      transformOrigin: "25% 50%",
+      rotationZ: 10,
+      yPercent: -10,
+      xPercent: 10,
+      ...LOOP
+    })
+
     gsap.to(body.current, {
-      transformOrigin: '85% 100%',
-      rotationZ: 20,
-      yoyo: true,
-      repeat: -1
+      transformOrigin: "50% 100%",
+      rotationZ: 5,
+      ...LOOP
+    })
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: 'top 90%',
+        end: 'top 0%',
+        markers: true,
+        scrub: 2,
+        invalidateOnRefresh: true,
+      },
     });
-  }, []);
+
+    tl.to(container.current, {
+      rotateZ: -30,
+      scale: 3,
+      x: '10vw',
+      y: '20vh',
+    })
+
+    tl.to(container.current, {
+      x: '-100vw',
+    })
+
+
+  }, { scope: container });
 
   return (
     <svg
@@ -37,6 +84,7 @@ const Dino = () => {
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
       className={styles.container}
+      ref={container}
     >
       <desc id='dinoDesc'>A red dinosaur vibing, humanly</desc>
       <g id='dino-dino'>

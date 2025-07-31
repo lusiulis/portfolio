@@ -1,6 +1,7 @@
 @use '@/styles/variables.scss' as *;
 
 .container {
+  text-align: end;
   .funTitle {
     color: $green;
     display: block;
@@ -20,6 +21,7 @@
 }
 
 .init {
+  text-align: start;
   .funTitle {
     transform: rotateX(90deg);
   }

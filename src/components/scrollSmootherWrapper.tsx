@@ -1,11 +1,12 @@
 'use client';
 
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollSmoother from 'gsap/ScrollSmoother';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { ReactNode, useEffect } from 'react';
 
-gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 const ScrollSmootherWrapper = ({ children }: { children: ReactNode }) => {
   useEffect(() => {

@@ -1,4 +1,8 @@
 .container {
   max-height: 50vh;
   max-width: 50vw;
+  position: absolute;
+  top: 5vh;
+  z-index: -1;
+  left: 0;
 }

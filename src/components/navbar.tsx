@@ -1,10 +1,28 @@
+'use client';
+
 import styles from '@/styles/components/navbar.module.scss';
+import gsap from 'gsap';
 import Link from 'next/link';
+import { useLayoutEffect, useRef } from 'react';
 
 const Navbar = () => {
+  const barRef = useRef(null);
+
+  useLayoutEffect(() => {
+    if (!barRef.current) return;
+
+    gsap.to(barRef.current, {
+      width: 0,
+      duration: 1.5,
+    });
+  }, []);
   return (
     <div className={styles.header}>
-      <div className={styles.bg}></div>
+      <div
+        className={styles.bar}
+        ref={barRef}
+      />
+      <div className={styles.bg} />
       <div className={styles.container}>
         <Link href='/'>
           <img

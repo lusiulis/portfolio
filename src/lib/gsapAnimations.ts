@@ -36,10 +36,9 @@ export const defaultFunTitle = ({
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: triggerRef,
-      start: 'top 70%',
-      end: 'top 50%',
+      start: 'top 80%',
+      end: 'top 60%',
       scrub: 1,
-      markers: true,
     },
   });
   tl.from(titleRef, {

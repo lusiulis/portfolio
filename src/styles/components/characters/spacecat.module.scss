@@ -1,0 +1,33 @@
+.container {
+  .cat {
+    width: 10vh;
+    height: 10vh;
+    position: absolute;
+    z-index: -1;
+    will-change: transform;
+  }
+
+  .white {
+    top: 10vh;
+    right: 20vw;
+    transform: rotate(40deg);
+  }
+
+  .black {
+    top: 60vh;
+    left: 20vw;
+    transform: rotate(-40deg);
+  }
+
+  .gray {
+    top: 10vh;
+    left: -40vw;
+    transform: rotate(40deg);
+  }
+
+  .orange {
+    top: 80vh;
+    left: -20vw;
+    transform: rotate(-40deg);
+  }
+}

@@ -1,0 +1,13 @@
+.container {
+  position: fixed;
+  left: 0;
+  justify-content: end;
+  z-index: 999;
+
+  .bar {
+    background-color: white;
+    width: 10px;
+    border-radius: 10px;
+    height: 100vh;
+  }
+}

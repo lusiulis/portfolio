@@ -2,6 +2,7 @@
 
 import styles from '@/styles/components/navbar.module.scss';
 import gsap from 'gsap';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useLayoutEffect, useRef } from 'react';
 
@@ -25,7 +26,7 @@ const Navbar = () => {
       <div className={styles.bg} />
       <div className={styles.container}>
         <Link href='/'>
-          <img
+          <Image
             src='/logo192.png'
             alt='logo'
             className={styles.logoImg}

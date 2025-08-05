@@ -5,7 +5,7 @@ import OrangeCat from './orangeCat';
 import BlackCat from './blackCat';
 import GrayCat from './grayCat';
 import styles from '@/styles/components/characters/spacecat.module.scss';
-import { useCallback, useRef } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 

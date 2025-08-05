@@ -11,9 +11,8 @@ const OceanScene = () => {
   const wave2 = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    const tl = gsap.timeline();
 
-    tl.fromTo(
+    gsap.fromTo(
       wave1.current,
       {
         xPercent: -5,
@@ -29,8 +28,10 @@ const OceanScene = () => {
         ease: 'none',
         opacity: 0,
         zIndex: 1,
+        yoyo: true
       }
-    ).fromTo(
+    );
+    gsap.fromTo(
       wave2.current,
       {
         xPercent: 0,
@@ -45,9 +46,10 @@ const OceanScene = () => {
         duration: 14,
         ease: 'none',
         opacity: 1,
+        delay: 4,
         zIndex: 5,
-      },
-      '-=7'
+        yoyo: true
+      }
     );
   }, { scope: container });
 

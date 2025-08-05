@@ -28,8 +28,9 @@ const Navbar = () => {
         <Link href='/'>
           <Image
             src='/logo192.png'
+            width={70}
+            height={70}
             alt='logo'
-            className={styles.logoImg}
           />
         </Link>
         <div className={styles.navbar}>

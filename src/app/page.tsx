@@ -1,5 +1,6 @@
 import GapBlock from '@/components/common/gapBlock';
 import IntroScene from '@/components/scenes/introScene';
+import OceanScene from '@/components/scenes/oceanScene';
 import RootsScene from '@/components/scenes/rootsScene';
 import styles from '@/styles/pages/home.module.scss';
 
@@ -11,6 +12,7 @@ const Home = () => {
       <GapBlock isFull />
       <RootsScene />
       <GapBlock isFull />
+      <OceanScene />
     </div>
   );
 };

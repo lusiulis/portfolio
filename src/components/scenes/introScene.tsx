@@ -25,22 +25,24 @@ const IntroScene = () => {
   });
 
   return (
-    <div className={styles.container}>
-      <FunTitle
-        title=' Who is Lu'
-        subtitle='Luis Fernando Vargas Benambourg'
-        description='Software engineer'
-        args='.is'
-        final='?'
-        animation={initialFunTitle}
-        initTitle
-      >
-        <div
-          className={styles.loaded}
-          ref={loadedRef}
-        />
-      </FunTitle>
-      <SpaceCats />
+    <div className={`${styles.container} scene-overall`}>
+      <div className='scene-container'>
+        <FunTitle
+          title=' Who is Lu'
+          subtitle='Luis Fernando Vargas Benambourg'
+          description='Software engineer'
+          args='.is'
+          final='?'
+          animation={initialFunTitle}
+          initTitle
+        >
+          <div
+            className={styles.loaded}
+            ref={loadedRef}
+          />
+        </FunTitle>
+        <SpaceCats />
+      </div>
     </div>
   );
 };

@@ -31,4 +31,16 @@ body {
       height: 100vh;
     }
   }
+
+  .scene-overall {
+    position: relative;
+    .scene-container {
+      margin: auto;
+      max-width: 1200px;
+
+      @media (max-width: 1250px) {
+        padding: 0 20px;
+      }
+    }
+  }
 }

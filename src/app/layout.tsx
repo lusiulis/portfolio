@@ -20,7 +20,7 @@ export default function RootLayout({
         <Navbar />
         <ScrollSmootherWrapper>
           <main className={styles.overall}>
-            <div className={styles.mainContainer}>{children}</div>
+            <div>{children}</div>
           </main>
         </ScrollSmootherWrapper>
       </body>

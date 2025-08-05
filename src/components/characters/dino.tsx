@@ -57,8 +57,7 @@ const Dino = () => {
       scrollTrigger: {
         trigger: container.current,
         start: 'top 90%',
-        end: 'top 0%',
-        markers: true,
+        end: 'top -20%',
         scrub: 2,
         invalidateOnRefresh: true,
       },
@@ -67,12 +66,15 @@ const Dino = () => {
     tl.to(container.current, {
       rotateZ: -30,
       scale: 3,
-      x: '10vw',
-      y: '20vh',
+      x: '50vw',
+      y: '-20vh',
     })
 
     tl.to(container.current, {
       x: '-100vw',
+      scale: 0,
+      y: '-=100vh',
+      rotateZ: 120,
     })
 
 

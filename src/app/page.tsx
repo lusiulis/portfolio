@@ -11,8 +11,9 @@ const Home = () => {
       <IntroScene />
       <GapBlock isFull />
       <RootsScene />
-      <GapBlock isFull />
+      <GapBlock />
       <OceanScene />
+      <GapBlock isFull />
     </div>
   );
 };

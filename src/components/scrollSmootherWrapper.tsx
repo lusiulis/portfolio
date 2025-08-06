@@ -10,18 +10,24 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother, useGSAP);
 
 const ScrollSmootherWrapper = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
-    const smoother = ScrollSmoother.create({
-      wrapper: '#smooth-wrapper',
-      content: '#smooth-content',
-      smooth: 1,
-      effects: true,
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 800px)", () => {
+      const smoother = ScrollSmoother.create({
+        wrapper: '#smooth-wrapper',
+        content: '#smooth-content',
+        smooth: 2,
+        effects: true
+      });
+
+      smoother.scrollTo(0, true);
+
+      return () => {
+        smoother.kill();
+      };
     });
 
-    smoother.scrollTo(0, true);
-
-    return () => {
-      smoother.kill();
-    };
+    return () => mm.revert();
   }, []);
   return (
     <div id='smooth-wrapper'>

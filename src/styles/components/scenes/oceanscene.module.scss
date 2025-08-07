@@ -1,12 +1,8 @@
 @use '../../variables.scss' as *;
 
 .oceanContainer {
-  left: 0;
-  position: fixed;
-  bottom: 0;
-  height: 100vh;
-  overflow-y: visible;
-
+  z-index: -2;
+  
   .sky {
     width: 100vw;
     height: calc(100vh - 304px);
@@ -14,19 +10,18 @@
     background-size: 100% 100%;
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: flex-end;
 
     @media screen and (max-width: 580px) {
       height: calc(100vh - 102px);
     }
 
     .cover {
-      position: absolute;
       z-index: 40;
-      height: 100vh;
+      height: 101%;
       width: 100vw;
       background: linear-gradient(180deg,
-          #131313 50%,
+          #131313 10%,
           #fdc75a41 80%,
           #fdc75a 95%);
     }

@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  background-color: $base_color;
   z-index: 555;
 
   .bar {
@@ -32,7 +33,6 @@
     margin: auto;
     width: 100%;
     display: flex;
-    background-color: $base_color;
     align-items: center;
     justify-content: space-between;
     padding: 5px 0;
@@ -40,10 +40,6 @@
     
     @media (max-width: 1250px) {
       padding: 0 20px;
-    }
-
-    .logoImg {
-      height: 70px;
     }
 
     .navbar {

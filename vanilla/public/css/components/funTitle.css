@@ -1,0 +1,44 @@
+.funTitle-container {
+  text-align: end;
+
+  .funTitle {
+    color: #58daa6;
+    display: block;
+    font-size: 3rem;
+
+    .args {
+      color: white;
+    }
+  }
+
+  .subtitle {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+
+  .description {
+    color: #888888;
+  }
+}
+
+#initTitle {
+  text-align: start;
+
+  #intro-loadbar {
+    height: 5px;
+    width: 0;
+    background-color: white;
+    margin-top: 1em;
+    border-radius: 10px;
+  }
+  
+  .funTitle {
+    transform: rotateX(90deg);
+  }
+
+  .subtitle,
+  .description {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}

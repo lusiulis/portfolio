@@ -6,12 +6,12 @@ import gsap from 'gsap';
 import { useRef } from 'react'
 
 const OceanScene = () => {
-  const container = useRef<HTMLDivElement>(null);
+  const oceanContainer = useRef<HTMLDivElement>(null);
   const wave1 = useRef<HTMLDivElement>(null);
   const wave2 = useRef<HTMLDivElement>(null);
+  const oceanScene = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-
     gsap.fromTo(
       wave1.current,
       {
@@ -31,6 +31,7 @@ const OceanScene = () => {
         yoyo: true
       }
     );
+
     gsap.fromTo(
       wave2.current,
       {
@@ -51,23 +52,31 @@ const OceanScene = () => {
         yoyo: true
       }
     );
-  }, { scope: container });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: oceanContainer.current,
+        start: 'top top',
+        end: '+=2000px',
+        pin: true,
+        scrub: true
+      }
+    });
+  }, { scope: oceanScene });
 
   return (
-    <div className={`scene-overall ${styles.oceanContainer}`} ref={container}>
-      <div className="scene-container">
-        {
-          //ADD TEXT CONTENT OR OTHER STUFF
-        }
-      </div>
-      <div className={styles.sky}>
-        <div className={styles.cover} />
-      </div>
+    <div className='scene-overall' ref={oceanScene}>
+      <div className='scene-container'></div>
+      <div className={styles.oceanContainer} ref={oceanContainer}>
+        <div className={styles.sky}>
+          <div className={styles.cover} />
+        </div>
 
-      <div className={styles.ocean}>
-        <div className={styles.skyMask} />
-        <div className={`${styles.waves} ${styles.w1}`} ref={wave1} />
-        <div className={`${styles.waves} ${styles.w2}`} ref={wave2} />
+        <div className={styles.ocean}>
+          <div className={styles.skyMask} />
+          <div className={`${styles.waves} ${styles.w1}`} ref={wave1} />
+          <div className={`${styles.waves} ${styles.w2}`} ref={wave2} />
+        </div>
       </div>
     </div>
   )

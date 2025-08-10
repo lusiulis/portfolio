@@ -1,22 +1,11 @@
-@use '../variables.scss' as *;
-
-.header {
+nav {
+  background-color: #131313;
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: $base_color;
-  z-index: 555;
-
-  .bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 2px;
-    border-radius: 10px;
-    background-color: white;
-  }
+  z-index: 999;
 
   .bg {
     position: absolute;
@@ -28,6 +17,16 @@
     background: linear-gradient(180deg, #131313 3rem, #13131300);
   }
 
+  #nav-loadbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 2px;
+    border-radius: 10px;
+    background-color: white;
+  }
+
   .container {
     max-width: 1200px;
     margin: auto;
@@ -37,12 +36,19 @@
     justify-content: space-between;
     padding: 5px 0;
     box-sizing: border-box;
-    
-    @media (max-width: 1250px) {
-      padding: 0 20px;
+
+    #a-home {
+      img {
+        height: 70px;
+        width: 70px;
+      }
     }
 
-    .navbar {
+    @media (max-width: 1250px) {
+      padding: 5px 20px;
+    }
+
+    .links {
       width: clamp(100px, 40%, 200px);
       display: flex;
       justify-content: space-between;
@@ -52,15 +58,10 @@
         font-weight: bold;
         text-decoration: none;
         color: white;
-        margin: 0 10px;
         transition: all 0.2s ease-in;
 
         &:hover {
-          color: $green;
-        }
-
-        &.active {
-          color: $red;
+          color: #58daa6;
         }
       }
     }

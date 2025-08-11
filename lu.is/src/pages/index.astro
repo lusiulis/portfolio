@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import styles from '../styles/home.module.scss';
+import Intro from '../components/scenes/Intro.astro';
+import GapBlock from '../components/common/GapBlock.astro';
+import Roots from '../components/scenes/Roots.astro';
+import Ocean from '../components/scenes/Ocean.astro';
+---
+
+<Layout>
+  <div class={styles.container}>
+    <GapBlock />
+    <Intro />
+    <GapBlock isFull />
+    <Roots />
+    <GapBlock isFull />
+    <Ocean />
+    <GapBlock isFull />
+  </div>
+</Layout>

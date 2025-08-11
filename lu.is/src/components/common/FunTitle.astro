@@ -1,0 +1,49 @@
+---
+import styles from '../../styles/components/funtitle.module.scss';
+const { args, title, subtitle, description, final, sceneId } = Astro.props;
+---
+
+<div
+  class={`${styles.container} ${styles[sceneId]}`}
+  id=`${sceneId}-funTitle`
+>
+  <h1
+    class={styles.funTitle}
+    id=`${sceneId}-funTitle-title`
+  >
+    {title}
+    {
+      args && (
+        <span
+          class={styles.args}
+          id={`${sceneId}-funTitle-args`}
+        >
+          {args}
+        </span>
+      )
+    }
+    {final}
+  </h1>
+  {
+    subtitle && (
+      <p
+        class={styles.subtitle}
+        id={`${sceneId}-funTitle-subtitle`}
+      >
+        {subtitle}
+      </p>
+    )
+  }
+  <br />
+  {
+    description && (
+      <p
+        class={styles.description}
+        id={`${sceneId}-funTitle-description`}
+      >
+        {description}
+      </p>
+    )
+  }
+  <slot />
+</div>

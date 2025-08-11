@@ -1,0 +1,46 @@
+@use '../variables.scss' as *;
+
+.container {
+  text-align: end;
+
+  &.intro {
+    text-align: start;
+
+    .funTitle {
+      transform: rotateX(90deg);
+    }
+
+    .subtitle,
+    .description {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+  }
+
+  .loadbar {
+    height: 5px;
+    width: 0;
+    background-color: white;
+    margin-top: 1em;
+    border-radius: 10px;
+  }
+
+  .funTitle {
+    color: $green;
+    display: block;
+    font-size: 3rem;
+
+    .args {
+      color: white;
+    }
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    margin-top: .5rem;
+  }
+
+  .description {
+    color: $gray_text;
+  }
+}

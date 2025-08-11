@@ -1,0 +1,90 @@
+---
+import styles from '../../styles/components/scenes/ocean.module.scss';
+---
+
+<section class='scene-overall'>
+  <div class='scene-container'></div>
+  <div
+    class={styles.oceanContainer}
+    id='oceanContainer'
+  >
+    <div class={styles.sky}>
+      <div class={styles.cover}></div>
+    </div>
+    <div class={styles.ocean}>
+      <div class={styles.skyMask}></div>
+      <div
+        class={`${styles.waves} ${styles.w1}`}
+        id='w1'
+      >
+      </div>
+      <div
+        class={`${styles.waves} ${styles.w2}`}
+        id='w2'
+      >
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  const wave1 = document.querySelector('#w1');
+  const wave2 = document.querySelector('#w2');
+
+  gsap.fromTo(
+    wave1,
+    {
+      xPercent: -5,
+      yPercent: -20,
+      opacity: 1,
+      zIndex: 5,
+    },
+    {
+      xPercent: 0,
+      yPercent: -80,
+      repeat: -1,
+      duration: 14,
+      ease: 'none',
+      opacity: 0,
+      zIndex: 1,
+      yoyo: true,
+    }
+  );
+
+  gsap.fromTo(
+    wave2,
+    {
+      xPercent: 0,
+      yPercent: -120,
+      opacity: 0,
+      zIndex: 1,
+    },
+    {
+      xPercent: -5,
+      yPercent: -40,
+      repeat: -1,
+      duration: 14,
+      ease: 'none',
+      opacity: 1,
+      delay: 4,
+      zIndex: 5,
+      yoyo: true,
+    }
+  );
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#oceanContainer',
+        start: 'top top',
+        end: '+=2000px',
+        pin: true,
+        scrub: true,
+        refreshPriority: 9,
+        preventOverlaps: true,
+        anticipatePin: 1,
+      },
+    });
+  });
+</script>

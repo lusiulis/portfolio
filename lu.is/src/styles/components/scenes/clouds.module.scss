@@ -1,0 +1,27 @@
+.cloudsContainer {
+  z-index: 10;
+
+  .clouds {
+    display: flex;
+    width: 100vw;
+    position: relative;
+  }
+}
+
+.cloud {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  transform: scaleX(1.4);
+}
+
+#cloud1 {
+  left: 0;
+}
+
+#cloud2 {
+  left: 0;
+}
+#cloud3 {
+  left: 0;
+}

@@ -1,0 +1,15 @@
+---
+const { isFull } = Astro.props;
+---
+
+<div class={`gap${isFull ? ' full' : ''}`}></div>
+
+<style lang='scss'>
+  .gap {
+    height: 25vh;
+
+    &.full {
+      height: 100vh;
+    }
+  }
+</style>

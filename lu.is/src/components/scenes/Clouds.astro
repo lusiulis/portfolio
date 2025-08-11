@@ -1,0 +1,81 @@
+---
+import styles from '../../styles/scenes/clouds.module.scss';
+---
+
+<div
+  class={styles.cloudsContainer}
+  id='cloudsContainer'
+>
+  <div class={styles.clouds}>
+    <img
+      id='cloud1'
+      src='/resources/clouds/blurry1.png'
+      alt='blurry cloud'
+      class={styles.cloud}
+    />
+    <img
+      id='cloud2'
+      src='/resources/clouds/blurry2.png'
+      alt='blurry cloud'
+      class={styles.cloud}
+    />
+    <img
+      id='cloud3'
+      src='/resources/clouds/blurry3.png'
+      alt='blurry cloud'
+      class={styles.cloud}
+    />
+  </div>
+</div>
+
+<script is:inline>
+/*  import { gsap } from 'gsap';
+  const cloud1 = document.querySelector('#cloud1');
+  const cloud2 = document.querySelector('#cloud2');
+  const cloud3 = document.querySelector('#cloud3');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const cloudsTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#cloudsContainer',
+        start: 'top 100%',
+        end: 'top -40%',
+        scrub: 1,
+      },
+    });
+
+    cloudsTL.fromTo(
+      cloud1,
+      {
+        opacity: 0,
+        x: '-500',
+      },
+      { x: '-200', opacity: 1 }
+    );
+
+    cloudsTL.fromTo(
+      cloud2,
+      {
+        opacity: 0,
+        x: '200',
+      },
+      {
+        opacity: 1,
+        x: '100',
+      },
+      '-=.5'
+    );
+    cloudsTL.fromTo(
+      cloud3,
+      {
+        opacity: 0,
+        x: '400',
+      },
+      {
+        opacity: 1,
+        x: '200',
+      },
+      '-=.5'
+    );
+  });*/
+</script>

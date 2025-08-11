@@ -1,0 +1,48 @@
+---
+import FunTitle from '../common/FunTitle.astro';
+---
+
+<section class='scene-overall'>
+  <div
+    class='scene-container'
+    id='rootsContainer'
+  >
+    <FunTitle
+      title='Roots'
+      sceneId='roots'
+      args='.()'
+      subtitle='Self-taugth/Academy Software Developer.'
+      description={'For as long as I can remember my life has revolved around technology. Growing up, my free time was dedicated to classic and online video games where I connected with people from all over the world. I think thanks to these roots I understood how important the internet is and found my passion for web development, where I can create tools to connect people by showing useful and entertaining content.'}
+    />
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  const funTitle = document.querySelector('#roots-funTitle-title');
+  const subtitle = document.querySelector('#roots-funTitle-subtitle');
+  const description = document.querySelector('#roots-funTitle-description');
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const rootsTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#rootsContainer',
+        start: 'top 60%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    });
+
+    rootsTL.from([funTitle, subtitle], {
+      translateY: '-200px',
+      rotateX: -90,
+      opacity: 0,
+    });
+    rootsTL.from(description, {
+      translateY: '100px',
+      rotateX: 90,
+      opacity: 0,
+      delay: 1,
+    });
+  });
+</script>

@@ -1,0 +1,56 @@
+---
+import FunTitle from '../common/FunTitle.astro';
+import styles from '../../styles/components/funtitle.module.scss';
+import SpaceCats from '../characters/cats/SpaceCats.astro';
+---
+
+<section class='scene-overall'>
+  <div class='scene-container'>
+    <FunTitle
+      title='Who is Lu'
+      subtitle='Luis Fernando Vargas Benambourg'
+      description='Software engineer'
+      args='.is'
+      final='?'
+      sceneId='intro'
+    >
+      <div
+        id='intro-loadbar'
+        class={styles.loadbar}
+      >
+      </div>
+    </FunTitle>
+  </div>
+  <SpaceCats />
+</section>
+
+<script>
+  const funTitle = document.querySelector('#intro-funTitle-title');
+  const subtitle = document.querySelector('#intro-funTitle-subtitle');
+  const description = document.querySelector('#intro-funTitle-description');
+  const loadBar = document.querySelector('#intro-loadbar');
+  const navLoadbar = document.querySelector('#navbar-loadbar');
+
+  import { gsap } from 'gsap';
+  gsap.to(funTitle, { rotationX: 0, transformOrigin: '50% 50% -100px' });
+  gsap.to([subtitle, description], {
+    x: 0,
+    opacity: 1,
+    delay: 0.5,
+    duration: 1,
+    ease: 'power2.out',
+  });
+  gsap.to(loadBar, {
+    width: '50vw',
+    delay: 0.5,
+    duration: 1,
+    onComplete: () => {
+      document.body.style.overflowY = 'scroll';
+    },
+  });
+
+  gsap.to(navLoadbar, {
+    width: 0,
+    duration: 1.5,
+  });
+</script>

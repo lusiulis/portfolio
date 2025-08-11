@@ -1,0 +1,120 @@
+---
+import styles from '../../../styles/components/characters/spacecats.module.scss';
+import BlackCat from './BlackCat.astro';
+import GrayCat from './GrayCat.astro';
+import OrangeCat from './OrangeCat.astro';
+import WhiteCat from './WhiteCat.astro';
+---
+
+<div
+  class={styles.container}
+  id='space-cats-container'
+>
+  <WhiteCat />
+  <GrayCat />
+  <BlackCat />
+  <OrangeCat />
+</div>
+
+<script>
+  const whiteCat = document.querySelector('#white-cat');
+  const grayCat = document.querySelector('#gray-cat');
+  const blackCat = document.querySelector('#black-cat');
+  const orangeCat = document.querySelector('#orange-cat');
+
+  import { gsap } from 'gsap';
+  gsap.to([blackCat, grayCat], {
+    scale: 1.5,
+    duration: 1.5,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut',
+  });
+
+  gsap.to([orangeCat, whiteCat], {
+    scale: 0.5,
+    duration: 1.5,
+    yoyo: true,
+    repeat: -1,
+    ease: 'sine.inOut',
+  });
+
+  gsap.to([orangeCat, blackCat], {
+    rotate: 40,
+    yoyo: true,
+    repeat: -1,
+    duration: 1.5,
+    ease: 'sine.inOut',
+  });
+
+  gsap.to([whiteCat, grayCat], {
+    rotate: -40,
+    yoyo: true,
+    repeat: -1,
+    duration: 1.5,
+    ease: 'sine.inOut',
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: '#space-cats-container',
+        start: 'top 40%',
+        end: 'bottom -50%',
+        scrub: 2,
+      },
+    });
+
+    tl.addLabel('start')
+      .to(
+        orangeCat,
+        {
+          x: '40vw',
+          y: '40vh',
+        },
+        'start'
+      )
+      .to(
+        [whiteCat, blackCat],
+        {
+          y: '40vh',
+          x: '100vw',
+        },
+        'start'
+      )
+      .to(
+        grayCat,
+        {
+          y: '80vh',
+          x: '80vw',
+        },
+        'start'
+      );
+
+    tl.addLabel('second')
+      .to(
+        orangeCat,
+        {
+          x: 0,
+          y: 0,
+        },
+        'second'
+      )
+      .to(
+        grayCat,
+        {
+          x: '+=60vw',
+          y: '70vh',
+        },
+        'second'
+      )
+      .to(
+        blackCat,
+        {
+          x: '-=200vw',
+          y: '-=40vh',
+        },
+        'second'
+      );
+  });
+</script>

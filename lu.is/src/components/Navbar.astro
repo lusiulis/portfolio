@@ -1,0 +1,21 @@
+---
+import styles from '../styles/components/navbar.module.scss';
+---
+
+<div class={styles.header}>
+  <div class={styles.bg}></div>
+  <div id="navbar-loadbar" class={styles.loadbar}></div>
+  <div class={styles.container}>
+    <a href='/'>
+      <img
+        src='/logo192.png'
+        alt='logo'
+        class={styles.logoImg}
+      />
+    </a>
+    <div class={styles.navbar}>
+      <a href='/about'>About</a>
+      <a href='/contact'>Contact</a>
+    </div>
+  </div>
+</div>

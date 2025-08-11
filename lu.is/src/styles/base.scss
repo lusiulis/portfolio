@@ -1,0 +1,38 @@
+@use './variables.scss' as *;
+
+body {
+  background-color: $base_color;
+  height: 100vh;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  margin: 0;
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
+  #app {
+    width: 100%;
+    overflow-x: hidden;
+
+    .scene-overall {
+      position: relative;
+
+      .scene-container {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        @media (max-width: 1250px) {
+          padding: 0 20px;
+        }
+      }
+    }
+  }
+}

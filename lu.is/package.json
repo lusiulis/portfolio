@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "astro": "^5.12.9",
+    "gsap": "^3.13.0",
+    "p5": "^2.0.3"
+  },
+  "devDependencies": {
+    "@types/gsap": "^1.20.2",
+    "@types/p5": "^1.7.6",
+    "sass": "^1.86.3"
+  }
+}
